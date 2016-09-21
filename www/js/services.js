@@ -1,50 +1,29 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
+.factory('datos', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var chats = [{
+  return [{
     id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
+    pregunta: 'Ben Sparrow uno',
+    respuesta1: 'la pregunta uno?',
+    respuesta2: ' la pregunta uno?',
+    respuesta3: ' la pregunta uno?'
+    
   }, {
     id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
+   pregunta: 'Ben Sparrow dos',
+    respuesta1: 'respuestas  dos?',
+    respuesta2: 'respuestas  dos?',
+    respuesta3: 'respuestas  dos?'
   }, {
     id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
+    pregunta: 'Ben Sparrow tres',
+    respuesta1: 'You on your way?',
+    respuesta2: 'You on your way?',
+    respuesta3: 'You on your way?'
+  
   }];
 
-  return {
-    all: function() {
-      return chats;
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
-    }
-  };
 });

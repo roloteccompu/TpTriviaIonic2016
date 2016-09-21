@@ -32,33 +32,36 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
-    abstract: false,
-    templateUrl: 'templates/tabs.html'
-  })
-
-  // Each tab has its own nav history stack:
-.state('tab.login', {
+  .state('login', {
       url: '/login',
       views: {
-        'tab-login': {
-          templateUrl: 'templates/tab-login.html',
+        'principal': {
+          templateUrl: 'templates/login.html',
           controller: 'Login'
         }
       }
     })
 
-  .state('tab.contacto', {
-    url: '/contacto',
+.state('games', {
+      url: '/games',
+      views: {
+        'principal': {
+          templateUrl: 'templates/games.html',
+          controller: 'Games'
+        }
+      }
+    })
+
+  .state('trivia', {
+    url: '/trivia',
     views: {
-      'tab-contacto': {
-        templateUrl: 'templates/tab-contacto.html',
-        controller: 'Contacto'
+      'principal': {
+        templateUrl: 'templates/trivia.html',
+        controller: 'Trivia'
       }
     }
   })
-
+/* 
   .state('tab.games', {
       url: '/games',
       views: {
@@ -72,7 +75,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
 
 
 
-  /*
+  
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
@@ -94,6 +97,6 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
   });*/
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/login');
+  $urlRouterProvider.otherwise('/login');
 
 });

@@ -1,0 +1,21 @@
+<ion-view  >
+
+  <ion-content  class="fondoTrivia">
+ <div class="divTrivia">  
+   <button class="pregunta button button-block" > {{pregunta}}</button>
+  
+       <div class="botones">
+        <button class="button button-block botonUno" ng-click="respuesta(opcion1)">
+        {{opcion1}}
+        </button>
+        <button class="button button-block botonDos" ng-click="respuesta(opcion2)">
+        {{opcion2}}
+        </button>
+        <button class="button button-block botonTres" ng-click="respuesta(opcion3)">
+        {{opcion3}}
+        </button>
+        </div>
+      </div>
+
+  </ion-content>
+</ion-view>

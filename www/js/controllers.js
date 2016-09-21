@@ -1,25 +1,52 @@
 angular.module('starter.controllers', [])
 
-.controller('Contacto', function($scope) {})
+.controller('Login', function($scope,$state) {
 
-.controller('Games', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+  $scope.cambiarEstado=function(){
+      $state.go('games');
+    console.log("entro login");
+  }
 
-  
+})
+.controller('Games', function($scope,$state) {
+ 
+
+  $scope.elegirJuego=function(juego){
+    $state.go(juego);
+
+  }
 })
 
-.controller('Login', function($scope) {
-  
-})
+.controller('Trivia', function($scope,$state,datos) {
+ 
+ var indice=0;
+ $scope.datos=[];
+ $scope.datos=datos;
+console.log($scope.datos);
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+ $scope.pregunta=$scope.datos[indice].pregunta;
+ $scope.opcion1=$scope.datos[indice].respuesta1;
+ $scope.opcion2=$scope.datos[indice].respuesta2;
+ $scope.opcion3=$scope.datos[indice].respuesta3;
+
+ $scope.respuesta=function(respuesta){
+        if (respuesta===$scope.datos[indice].respuesta1) {
+            indice++;
+          $scope.pregunta=$scope.datos[indice].pregunta;
+ $scope.opcion1=$scope.datos[indice].respuesta1;
+ $scope.opcion2=$scope.datos[indice].respuesta2;
+ $scope.opcion3=$scope.datos[indice].respuesta3;
+        }
+        else{
+          //si se equivoca hago que vibre y lo envio a otro state
+          console.log("perdiste");
+        }
+ }
+
+  $scope.home=function(){
+      $state.go('games');
+
+    console.log("entro login");
+  }
+
 });
