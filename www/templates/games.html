@@ -1,16 +1,19 @@
 <ion-view  >
 
-  <ion-content  class="contenido">
-<div class="titulo">
-   <h2 class="title">Games</h2>
+  <div class="bar bar-header bar-positive">
+   <button class="button icon ion-ios-telephone " ui-sref="contacto" >contacto</button>
+      <h1 class="title">Games</h1>
+  
 </div>
+
+<ion-content  class="contenido">
 
  
 <div class="opcionesDeJuego"> 
         <button class="button button-block botonUno" ng-click="elegirJuego('trivia')">
         AppTrivia
         </button>
-        <button class="button button-block botonDos">
+        <button class="button button-block botonDos" ui-sref="piano">
         AppSonidosPiano
         </button>
         <button class="button button-block botonTres">
@@ -19,11 +22,5 @@
 
 </div>
 
-<div class="bar bar-footer bar-dark menuInferior">
-   <button class="button icon ion-person-stalker""></button>
-   <button class="button icon ion-ios-telephone"></button>
-   <button class="button icon ion-star"></button>
-  
-</div>
   </ion-content>
 </ion-view>

@@ -61,31 +61,27 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
       }
     }
   })
-/* 
-  .state('tab.games', {
-      url: '/games',
+ 
+  .state('contacto', {
+      url: '/contacto',
       views: {
-        'tab-games': {
-          templateUrl: 'templates/tab-games.html',
-          controller: 'Games'
+        'principal': {
+          templateUrl: 'templates/contacto.html',
+          controller: 'Contacto'
         }
       }
     })
 
-
-
-
-  
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+    .state('piano', {
+      url: '/piano',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'principal': {
+          templateUrl: 'templates/piano.html',
+          controller: 'Piano'
         }
       }
     })
-
+/*
   .state('tab.account', {
     url: '/account',
     views: {
