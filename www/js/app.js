@@ -61,6 +61,24 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
       }
     }
   })
+    .state('perdioTrivia', {
+      url: '/perdioTrivia',
+      views: {
+        'principal': {
+          templateUrl: 'templates/perdioTrivia.html',
+          controller: 'PerdioTrivia'
+        }
+      }
+    })
+     .state('ganoTrivia', {
+      url: '/ganoTrivia',
+      views: {
+        'principal': {
+          templateUrl: 'templates/ganoTrivia.html',
+          controller: 'GanoTrivia'
+        }
+      }
+    })
  
   .state('contacto', {
       url: '/contacto',
@@ -78,6 +96,15 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
         'principal': {
           templateUrl: 'templates/piano.html',
           controller: 'Piano'
+        }
+      }
+    })
+     .state('controlMovimiento', {
+      url: '/controlMovimiento',
+      views: {
+        'principal': {
+          templateUrl: 'templates/controlMovimiento.html',
+          controller: 'ControlMovimiento'
         }
       }
     })
