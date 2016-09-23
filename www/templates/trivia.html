@@ -10,13 +10,13 @@
 
   
        <div class="botones">
-        <button class="button button-block botonUno" ng-click="respuesta(opcion1)">
-        {{opcion1}}
+        <button class="button button-block botonUno click" ng-click="respuesta(opcion1,correcta)">
+        {{opcion1}}{{correcta}}
         </button>
-        <button class="button button-block botonDos" ng-click="respuesta(opcion2)">
+        <button class="button button-block botonDos click"  ng-click="respuesta(opcion2,correcta)">
         {{opcion2}}
         </button>
-        <button class="button button-block botonTres" ng-click="respuesta(opcion3)">
+        <button class="button button-block botonTres click" ng-click="respuesta(opcion3,correcta)">
         {{opcion3}}
         </button>
         </div>

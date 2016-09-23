@@ -9,7 +9,7 @@ angular.module('starter.services', [])
     pregunta: 'Capital de Bahamas',
     respuesta1: 'Sucre',
     respuesta2: 'Ottawa',
-    respuesta3: ' Nasau',
+    respuesta3: 'Nasau',
     correcta:'Nasau'
     
   }, {

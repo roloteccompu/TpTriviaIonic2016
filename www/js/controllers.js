@@ -27,15 +27,11 @@ angular.module('starter.controllers', [])
       $scope.opcion1=$scope.datos[indice].respuesta1;
       $scope.opcion2=$scope.datos[indice].respuesta2;
       $scope.opcion3=$scope.datos[indice].respuesta3;
-      var correcta=$scope.datos[indice].correcta;
+      $scope.correcta=$scope.datos[indice].correcta;
 
-      $scope.respuesta=function(eleccion){
-
-      console.log(typeof(eleccion));
-      console.log(typeof($scope.correcta));
-
-
-                if (eleccion === correcta)
+      $scope.respuesta=function(eleccion,correcta){
+      
+                if (eleccion ==correcta)
                 {
                       indice++;
                       if (indice>5) {
@@ -46,12 +42,13 @@ angular.module('starter.controllers', [])
                           $scope.opcion1=$scope.datos[indice].respuesta1;
                           $scope.opcion2=$scope.datos[indice].respuesta2;
                           $scope.opcion3=$scope.datos[indice].respuesta3;
+                          $scope.correcta=$scope.datos[indice].correcta;
                       }
                 }
                 else{
                     console.log("perdiste");//si se equivoca hago que vibre y lo envio a otro state
-                    $cordovaVibration.vibrate(200);
-                    
+                   // $cordovaVibration.vibrate(200);
+                    $state.go("games");
                     //redireccionamos
                 } 
  }
@@ -65,7 +62,7 @@ angular.module('starter.controllers', [])
   })
 .controller('Piano',function($scope,$cordovaMedia, $ionicPlatform,$timeout,$cordovaNativeAudio){
    
-   $ionicPlatform.ready(function() {
+  /* $ionicPlatform.ready(function() {
       var src = "/android_asset/www/js/necesitoUnAmor.mp3";
       var media = $cordovaMedia.newMedia(src);
 
