@@ -1,12 +1,20 @@
 angular.module('starter.controllers', [])
 
-.controller('Login', function($scope,$state,$stateParams) {
+.controller('Login', function($scope,$state,$stateParams,$cordovaVibration) {
       $scope.user = {
-      Nombre:  ""
+      Nombre:  "Anonimo"
       }
       $scope.games=function(){
+        try {
+           $cordovaVibration.vibrate(60);
+        }
+        catch(error){
+            console.log( error +"la pc no vibra");
+        }
           $state.go('games',{"usuario":$scope.user.Nombre});
-      }
+        
+        }
+      
 })
 .controller('Games', function($scope,$state,$stateParams) {
        
@@ -14,18 +22,18 @@ angular.module('starter.controllers', [])
 
         $scope.contacto=function(){
               $state.go('contacto',{"usuario":$scope.usuario});
+               $cordovaVibration.vibrate(60);
         }
         $scope.trivia=function(){
               $state.go('trivia',{"usuario":$scope.usuario});
+               $cordovaVibration.vibrate(60);
         }
 })
-.controller('Trivia', function($scope,$state,datos,$cordovaVibration,$stateParams) {
+.controller('Trivia', function($scope,$state,datos,$cordovaVibration,$stateParams,$timeout) {
  
+  
     $scope.usuario=$stateParams.usuario;
-    $scope.games=function(){
-        $state.go('games',{"usuario":$scope.usuario});
-        }
- 
+   
       var indice=0;
       $scope.datos=[];
       $scope.datos=datos;
@@ -37,9 +45,10 @@ angular.module('starter.controllers', [])
       $scope.correcta=$scope.datos[indice].correcta;
 
       $scope.respuesta=function(eleccion,correcta){
-      
+
                 if (eleccion ==correcta)
-                {
+                {   
+            
                       indice++;
                       if (indice>5) {
 
@@ -54,9 +63,12 @@ angular.module('starter.controllers', [])
                       }
                 }
                 else{
-                    console.log("perdiste");//si se equivoca hago que vibre y lo envio a otro state
-                  try{
-                   $cordovaVibration.vibrate(100);
+                 console.log("perdiste");
+                try{
+               
+                    //si se equivoca hago que vibre y lo envio a otro state
+                  
+                   $cordovaVibration.vibrate(50);
                     }
                     catch(error){
                       console.log("en un pc no vibra")
@@ -66,12 +78,19 @@ angular.module('starter.controllers', [])
                 } 
       }
       $scope.home=function(){
-          $state.go('games');
+         
+          $state.go('games',{"usuario":$scope.usuario});
+             $cordovaVibration.vibrate(60);
 
       }
+       $scope.games=function(){
+         $state.go('games',{"usuario":$scope.usuario});
+             $cordovaVibration.vibrate(60);
+
+    }
 
 })
-.controller('PerdioTrivia', function($scope,$cordovaVibration,$state,$stateParams) {
+.controller('PerdioTrivia', function($scope,$cordovaVibration,$state,$stateParams,$timeout) {
 
     $scope.usuario=$stateParams.usuario;
         $scope.trivia=function(){
@@ -92,6 +111,19 @@ angular.module('starter.controllers', [])
               }   
             $state.go('games',{"usuario":$scope.usuario});
         }
+
+    $scope.usuario=$stateParams.usuario;
+
+
+   $scope.misMensajes=[];     
+  
+    $scope.resultados=function(){
+       $state.go("resultadosTrivia",{"usuario":$scope.usuario});
+  }
+  
+   $scope.volver=function(){
+       $state.go("perdioTrivia",{"usuario":$scope.usuario});
+  }
 })
 .controller('GanoTrivia', function($scope,$cordovaVibration,$state,$stateParams) {
    
@@ -114,8 +146,7 @@ angular.module('starter.controllers', [])
         }
   })
 
-.controller('Piano',function($scope,$cordovaMedia, $ionicPlatform,$timeout,
-  $cordovaVibration,notasMusicales,$state,$stateParams){
+.controller('Piano',function($scope,$cordovaMedia, $ionicPlatform,$timeout,$cordovaVibration,notasMusicales,$state,$stateParams){
   
         $scope.usuario=$stateParams.usuario;
           $scope.games=function(){
@@ -133,7 +164,7 @@ angular.module('starter.controllers', [])
          var controlador=$cordovaMedia.newMedia(canciones[0].nota); 
 
          $scope.play=function(indice){
-             $cordovaVibration.vibrate(50);
+          //   $cordovaVibration.vibrate(50);
 
           try{
               switch(indice){
@@ -268,17 +299,16 @@ angular.module('starter.controllers', [])
                   $scope.VistaTimestamp=$scope.measurements.timestamp.toString()+"px";   
                   
                   if ($scope.measurements.x >3 &&  $scope.measurements.x <7) {
-                     ´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
                       $scope.play(0);//inclinado a la izquierda aguila
                     }
                     else if($scope.measurements.x > -7 && $scope.measurements.x <-3){
                               $scope.play(1);//inclinado a la derecha leon
                           }
-                          else if($scope.measurements.ý >9.1 && $scope.measurements.y =<9.5){
+                          else if($scope.measurements.y >9.1 && $scope.measurements.y <9.6){
                                     $scope.play(2); //parado perro
                                 }
-                                else if($scope.measurements.z > -0.6 && $scope.measurements.z <0.6){
-                                        
+                                else if($scope.measurements.z <1.5 && $scope.measurements.z > -1.5){
+                                         $scope.play(3); //parado perro
                                       }
                                       else if($scope.measurements.z >-10  && $scope.measurements.z < -9){
                                         $scope.play(4);//volteado

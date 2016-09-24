@@ -1,0 +1,26 @@
+<ion-view >
+	<div class="bar bar-footer bar-dark">
+        <button class="button icon ion-arrow-left-a" ng-click="volver()">volver</button>
+      <h1 class="title"></h1>
+     
+  
+</div>
+
+  <ion-content class="fondoTrivia">
+
+  <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in misMensajes" type="item-text-wrap" href="#/tab/chats/{{chat.id}}" >
+     
+        <h2>{{chat.usuario}}</h2>
+        <p>resultado->{{chat.resultado}}</p>
+        <p>juego->{{chat.game}}</p>
+       
+        
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete ss
+        </ion-option-button>
+      </ion-item>
+    </ion-list>    
+   
+  </ion-content>
+</ion-view>
