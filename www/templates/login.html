@@ -8,9 +8,10 @@
       <div class="login">
             <img src="login.jpg" class="imagen">
             <label class="item item-input  fondo">
-            <input type="text" placeholder="Ingrese su nombre" id="fondoLabel" >
+            <input type="text" ng-model="user.Nombre" placeholder="Ingrese su nombre" id="fondoLabel" >
             </label>
-            <button class="button button-full button-positive" ng-click="cambiarEstado()">Comenzar</button>
+            
+            <button class="button button-full button-positive" ng-click="games()">Comenzar</button>
       </div>
   </ion-content>
 </ion-view>

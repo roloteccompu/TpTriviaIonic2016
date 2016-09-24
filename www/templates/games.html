@@ -1,8 +1,8 @@
 <ion-view  >
 
   <div class="bar bar-header bar-positive">
-   <button class="button icon ion-ios-telephone " ui-sref="contacto" >contacto</button>
-      <h1 class="title">Apps</h1>
+   <button class="button icon ion-social-android " ng-click="contacto()" ></button>
+      <h1 class="title">Bienvenido {{usuario}}</h1>
   
 </div>
 
@@ -10,7 +10,7 @@
 
  
 <div class="opcionesDeJuego"> 
-        <button class="button button-block botonUno" ng-click="elegirJuego('trivia')">
+        <button class="button button-block botonUno" ng-click="trivia()">
         AppTrivia
         </button>
         <button class="button button-block botonUno" ui-sref="piano">

@@ -46,15 +46,10 @@
  	color: white;
  	font-size: 18px;
  }
+ .botonUno:hover{
+ 	color:white;
+ }
  
- .to-be-changed {
-	transition: all 0s 9999999s;
-}
-
-.botonUno:active ~ .to-be-changed {
-	transition: all 0s;
-	color: red;
-}
 
  .fondoTrivia{
 	background-image: url(../fondoTrivia.jpg) ;

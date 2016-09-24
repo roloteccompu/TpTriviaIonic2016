@@ -1,20 +1,15 @@
 <ion-view  >
-<button class="button " style=" margin:20px;margin-left:20px;background-color:black;color:white;position:absolute;left:{{VistaX}};right:{{VistaY}};" ng-click="startWatching()" >start Izquierda</button>
+	<ion-content  class="contenido">
+		   		<h4>{{measurements.x}}</h4>
+		   		<h4>{{measurements.y}}</h4>
+		   		<h4>{{measurements.z}}</h4>
 
-<ion-content  style="width: 350px;height: 300px; margin:100px auto;background-color:green;">
-  
-    
-    <h5 style=" background-color:red;text-align: center;">{{VistaX}} ...derecha</h5>
-    <h5 style=" background-color:red; text-align: center;">{{VistaY}}..izquierda</h5>
-    <h5 style=" background-color:red; text-align: center;">{{VistaZ}}..zeta</h5>
-    <h5 style=" background-color:red; text-align: center;">{{VistaTimestamp}}..timestamp</h5>
- 
-
+		    <div class="bar bar-footer bar-dark">
+		    <button class="button icon ion-arrow-left-c" ng-click="games()" ></button>
+		     <button class="button " ng-click="startWatching()" >start</button>
+		     <button class="button " ng-click="stopWatching()" >stop</button>
+		    <h1 class="title">controlMovimiento</h1>
+			</div>
   </ion-content>
 
-  <div class="bar bar-footer bar-dark">
-   <button class="button icon ion-ios-home " ui-sref="games" >games</button>
-   <button class="button icon ion-ios-telephone " ng-click="stopWatching()" >stop</button>
-      <h1 class="title">controlMovimiento</h1>
-</div>
 </ion-view>

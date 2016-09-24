@@ -2,8 +2,8 @@
 <ion-view  >
 
   <div class="bar bar-header bar-dark">
-   <button class="button icon ion-ios-home " ui-sref="games" >home</button>
-      <h1 class="title">Piano</h1>
+   <button class="button icon ion-arrow-left-c " ng-click="games()" ></button>
+      <h1 class="title">Piano Tematico</h1>
   
 </div>
 
@@ -12,12 +12,12 @@
  
 <div class=" contenedorPiano"> 
       
-        <button class="botonesPiano" ng-click="play(0)" >primera</button>
-        <button class="botonesPiano" ng-click="play(1)" >segunda</button>
-        <button class="botonesPiano" ng-click="play(2)" >tercera</button>
-        <button class="botonesPiano" ng-click="play(3)" >cuarta</button>
-        <button class="botonesPiano" ng-click="pause()">pause</button>
-        <button class="botonesPiano" ng-click="stop()">stop</button>
+        <button style="background-image: url('imagenes/aguila.jpg');background-size: cover;" class="botonesPiano  icon ion-play" ng-click="play(0)" ></button>
+        <button style="background-image: url('imagenes/leon.jpg');background-size: cover;" class="botonesPiano icon ion-play" ng-click="play(1)" ></button>
+        <button style="background-image: url('imagenes/perro.jpg');background-size: cover;" class="botonesPiano icon ion-play" ng-click="play(2)" ></button>
+        <button style="background-image: url('imagenes/pajaro.jpg');background-size: cover;" class="botonesPiano icon ion-play" ng-click="play(3)" ></button>
+        <button style="background-color: rgba(0,200,0,0.4);" class="botonesPiano icon ion-pause" ng-click="pause()"></button>
+        <button style="background-color: rgba(0,200,0,0.4);"class="botonesPiano icon ion-stop" ng-click="stop()"></button>
         
 </div>
 

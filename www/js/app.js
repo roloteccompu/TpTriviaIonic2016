@@ -43,7 +43,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
     })
 
 .state('games', {
-      url: '/games',
+      url: '/games/:usuario',
       views: {
         'principal': {
           templateUrl: 'templates/games.html',
@@ -53,7 +53,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
     })
 
   .state('trivia', {
-    url: '/trivia',
+    url: '/trivia/:usuario',
     views: {
       'principal': {
         templateUrl: 'templates/trivia.html',
@@ -62,7 +62,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
     }
   })
     .state('perdioTrivia', {
-      url: '/perdioTrivia',
+      url: '/perdioTrivia/:usuario',
       views: {
         'principal': {
           templateUrl: 'templates/perdioTrivia.html',
@@ -71,7 +71,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
       }
     })
      .state('ganoTrivia', {
-      url: '/ganoTrivia',
+      url: '/ganoTrivia/:usuario',
       views: {
         'principal': {
           templateUrl: 'templates/ganoTrivia.html',
@@ -81,7 +81,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
     })
  
   .state('contacto', {
-      url: '/contacto',
+      url: '/contacto/:usuario',
       views: {
         'principal': {
           templateUrl: 'templates/contacto.html',
@@ -91,7 +91,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
     })
 
     .state('piano', {
-      url: '/piano',
+      url: '/piano/:usuario',
       views: {
         'principal': {
           templateUrl: 'templates/piano.html',
@@ -100,7 +100,7 @@ angular.module('starter', ['ionic', 'ngCordova','starter.controllers', 'starter.
       }
     })
      .state('controlMovimiento', {
-      url: '/controlMovimiento',
+      url: '/controlMovimiento/:usuario',
       views: {
         'principal': {
           templateUrl: 'templates/controlMovimiento.html',
