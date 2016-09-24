@@ -19,6 +19,7 @@ angular.module('starter.controllers', [])
 
 .controller('Trivia', function($scope,$state,datos,$cordovaVibration) {
 
+  
       var indice=0;
       $scope.datos=[];
       $scope.datos=datos;
@@ -47,59 +48,133 @@ angular.module('starter.controllers', [])
                 }
                 else{
                     console.log("perdiste");//si se equivoca hago que vibre y lo envio a otro state
-                   $cordovaVibration.vibrate(150);
+                  try{
+                   $cordovaVibration.vibrate(100);
+                    }
+                    catch(error){
+                      console.log("en un pc no vibra")
+                    }
                     $state.go("perdioTrivia");
                     //redireccionamos
                 } 
- }
-  $scope.home=function(){
-      $state.go('games');
+      }
+      $scope.home=function(){
+          $state.go('games');
 
-  }
+      }
 
 })
-.controller('PerdioTrivia', function($scope) {
-  })
-.controller('GanoTrivia', function($scope) {
+.controller('PerdioTrivia', function($scope,$cordovaVibration,$state) {
+
+        $scope.trivia=function(){
+           try{
+             $cordovaVibration.vibrate(60);
+              }
+              catch(error){
+                console.log("en un pc no vibra")
+              }
+            $state.go('trivia');
+        }
+         $scope.games=function(){
+       try{
+             $cordovaVibration.vibrate(60);
+              }
+              catch(error){
+                console.log("en un pc no vibra")
+              }   
+            $state.go('games');
+        }
+})
+.controller('GanoTrivia', function($scope,$cordovaVibration,$state) {
+    $scope.games=function(){
+       try{
+             $cordovaVibration.vibrate(60);
+              }
+              catch(error){
+                console.log("en un pc no vibra")
+              }   
+            $state.go('games');
+        }
   })
 .controller('Contacto', function($scope) {
   })
-.controller('Piano',function($scope,$cordovaMedia, $ionicPlatform,$timeout,$cordovaNativeAudio){
- /*  
-   var media=new Media();
+.controller('Piano',function($scope,$cordovaMedia, $ionicPlatform,$timeout,$cordovaVibration
+                              ,notasMusicales){
+  var canciones=[];
+    canciones=notasMusicales; 
 
-      $scope.play = function() {
-        var src = "/android_asset/www/js/necesitoUnAmor.mp3";
-       media = $cordovaMedia.newMedia(src);
-         media.play();
-      };
-
-      $scope.pause = function() {
-         media.pause();
-      };
-      $scope.stop = function() {
-         media.stop();
-      };
+   var media0=$cordovaMedia.newMedia(canciones[0].nota);
+   var media1=$cordovaMedia.newMedia(canciones[1].nota);
+   var media2=$cordovaMedia.newMedia(canciones[2].nota);
+   var media3=$cordovaMedia.newMedia(canciones[3].nota);
     
+   var controlador=$cordovaMedia.newMedia(canciones[0].nota); 
 
-  $scope.play=function(src){
+   $scope.play=function(indice){
+       $cordovaVibration.vibrate(100);
 
-      try{
-         $cordovaNativeAudio.preloadComplex('musica', 'corazonSerrano.mp3');
-          $cordovaNativeAudio.play('musica');
-
-      }
-      catch(error){
-        alert("entro al catch" + error);
-        console.log(error);
-      }
-  }
-  $scope.stop=function(){
-     $cordovaNativeAudio.stop('musica');
-  }*/
-
+          try{
+              switch(indice){
+                case 0:   
+                       if(controlador===media0){
+                            media0.play();
+                            controlador=media0;
+                       }
+                       else{
+                            controlador.stop();
+                            media0.play();
+                            controlador=media0;
+                       }
+                        
+                break;  
+                case 1: if(controlador===media0){
+                            media1.play();
+                            controlador=media1;
+                       }
+                       else{
+                            controlador.stop();
+                            media1.play();
+                            controlador=media1;
+                       }
+                break;
+                case 2: if(controlador===media2){
+                            media2.play();
+                            controlador=media2;
+                       }
+                       else{
+                            controlador.stop();
+                            media2.play();
+                            controlador=media2;
+                       }
+                break;
+                case 3: if(controlador===media3){
+                            media3.play();
+                            controlador=media3;
+                       }
+                       else{
+                            controlador.stop();
+                            media3.play();
+                            controlador=media3;
+                       }
+                break;
+              }
+          }
+          catch(error)
+          {
+            alert(error +"en el switch");
+          }
+   }
+   $scope.pause=function(){
+       $cordovaVibration.vibrate(100);
+     controlador.pause();
+   }   
+  
+   $scope.stop=function(){
+       $cordovaVibration.vibrate(100);
+       controlador.stop();
+   }
 })
-.controller('ControlMovimiento', function($scope,$cordovaDeviceMotion) {
+.controller('ControlMovimiento', function($scope,$cordovaDeviceMotion,$cordovaVibration,$cordovaMedia, $ionicPlatform) {
   
     $scope.Watching="mensaje";
       $scope.options = { 
@@ -122,7 +197,10 @@ $scope.previousMeasurements = {
     z : null,
     timestamp : null
 }
-
+$scope.VistaX="";
+$scope.VistaY="";
+$scope.VistaZ="";
+$scope.VistaTimestamp="";
 //Start Watching method
 
 //http://www.gajotres.net/detecting-device-motion-with-ionic-framework-and-ngcordova/   ejemplo device motion
@@ -144,7 +222,21 @@ $scope.startWatching = function() {
         $scope.measurements.x = result.x;
         $scope.measurements.y = result.y;
         $scope.measurements.z = result.z;
-        $scope.measurements.timestamp = result.timestamp;                 
+        $scope.measurements.timestamp = result.timestamp;   
+
+        $scope.VistaX=$scope.measurements.x.toString()+"px";
+        $scope.VistaY=$scope.measurements.y.toString()+"px"; 
+        $scope.VistaZ=$scope.measurements.z.toString()+"px";
+        $scope.VistaTimestamp=$scope.measurements.timestamp.toString()+"px";   
+        
+        if ($scope.measurements.x <1 || $scope.measurements.x >-1) {
+           //$cordovaVibration.vibrate(150);
+           //si x esta entre 2 y 6 esta inclinado a la izquierda 
+           //si x esta entre -2 y -6 esta inclinado a la derecha
+           //si z esta entre 1 y -1 esta parado
+           //si z esta entre 1 y -1 esta acostado
+           //si z esta entre -10 y -9 esta dado vuelta
+        }          
  
         // Detecta shake  
         $scope.detectShake(result);  
@@ -172,7 +264,7 @@ $scope.stopWatching = function() {
     // If measurement change is bigger then predefined deviation
     if (measurementsChange.x + measurementsChange.y + measurementsChange.z > $scope.options.deviation) {
         $scope.stopWatching();  // Stop watching because it will start triggering like hell
-        console.log('Shake detected'); // shake detected
+        alert('Shake detected'); // shake detected
         setTimeout($scope.startWatching(), 1000);  // Again start watching after 1 sex
  
         // Clean previous measurements after succesfull shake detection, so we can do it next time

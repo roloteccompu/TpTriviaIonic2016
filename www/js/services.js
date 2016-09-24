@@ -52,4 +52,17 @@ angular.module('starter.services', [])
   
   }];
 
+})
+.factory('notasMusicales', function() {
+  
+    return [{
+              nota: "/android_asset/www/sonidos/necesitoUnAmor.mp3"
+            }, {
+              nota: "/android_asset/www/sonidos/hermanosYaipen.mp3"
+            }, {
+              nota: "/android_asset/www/sonidos/corazonSerrano.mp3"
+            }, {
+              nota: "/android_asset/www/sonidos/perdon.mp3"
+    }];
+
 });

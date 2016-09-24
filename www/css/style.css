@@ -42,18 +42,20 @@
 
  }
  .botonUno{
- 	
  	background: rgba(0, 150, 255, 0.8);
  	color: white;
+ 	font-size: 18px;
  }
- .botonDos{
-background: rgba(0, 150, 255, 0.6);
- 	color: white;	
- }
- .botonTres{
-background: rgba(0, 150, 255, 0.2);
- 	color: white;
- }
+ 
+ .to-be-changed {
+	transition: all 0s 9999999s;
+}
+
+.botonUno:active ~ .to-be-changed {
+	transition: all 0s;
+	color: red;
+}
+
  .fondoTrivia{
 	background-image: url(../fondoTrivia.jpg) ;
        background-size: cover;
@@ -72,9 +74,7 @@ background: rgba(0, 150, 255, 0.2);
  	margin-top: 20%;
 
  }
- .botones button{
 
- }
  .pregunta{
 background-color: rgba(50,200,0,0.6);
  	border-radius: 50%;
@@ -99,19 +99,15 @@ background-color: rgba(50,200,0,0.6);
 	
  }
  .botonesPiano{
- 	background-color: blue;
+ 	background-color: white;
+ 	color:black;
+ 	font-size: 20px;
  	width: 100px;
  	height: 100px;
  	margin:20px 20px;
  }
- .click:hover{
-
- 	color: white;
- }
- .click:active{
  
- 	color: black;
- }
+ 
  .pregunta:hover{
  	color: white;
  	background-color: rgba(50,200,0,0.6);
