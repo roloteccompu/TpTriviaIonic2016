@@ -1,0 +1,26 @@
+<ion-view  >
+<div class="bar bar-header bar-dark">
+        <button class="button icon ion-arrow-left-c" ng-click="games()"></button>
+      <h1 class="title">Trivia</h1>
+  
+</div>
+  <ion-content  class="fondoTrivia" style="padding-top:40px;">
+ <div class="divTrivia">  
+   <button class="pregunta button button-block" > {{pregunta}}</button>
+
+  
+       <div class="botones">
+        <button class="button button-block botonUno "   ng-click="respuesta(opcion1,correcta)">
+        {{opcion1}}
+        </button>
+        <button class="button button-block botonUno "  ng-click="respuesta(opcion2,correcta)">
+        {{opcion2}}
+        </button>
+        <button class="button button-block botonUno " ng-click="respuesta(opcion3,correcta)">
+        {{opcion3}}
+        </button>
+        </div>
+      </div>
+
+  </ion-content>
+</ion-view>

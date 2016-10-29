@@ -1,0 +1,26 @@
+<ion-view  >
+
+  <div class="bar bar-header bar-dark">
+   <button class="button icon ion-social-android " style="background-color: black;" ng-click="contacto()" >contacto</button>
+      <h1 class="title">Bienvenido {{usuario}}</h1>
+    <button class=" button icon ion-android-person" style="background-color: black;" ui-sref="login">cambiar</button>
+</div>
+
+<ion-content  class="contenido">
+
+ 
+<div class="opcionesDeJuego"> 
+        <button class="button button-block botonUno" ng-click="trivia()">
+        AppTrivia
+        </button>
+        <button class="button button-block botonUno" ui-sref="piano">
+        AppSonidosPiano
+        </button>
+        <button class="button button-block botonUno" ui-sref="controlMovimiento">
+        AppControlMovimiento
+        </button>
+
+</div>
+
+  </ion-content>
+</ion-view>

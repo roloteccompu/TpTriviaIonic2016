@@ -440,24 +440,7 @@ angular.module('starter.controllers', [])
            controlador.stop();
        }
 
-/*
-  firebase login 
-  firebase init
-   firebase serve
-   ionic upload para subir tu aplicaion a ionic view  
-   ionic deploy para actualizar contenido de www
-   git pull es para bajarse las actualizaciones de github
-   realizas un comit del pull y de las actualizaciones y lo que modificaste
-   luego haces un push
 
-    github
-    firebase->deploy->reglas
-    id-ionic view 
-    ubicacion falsa
-
-   ionic ->www pongo los archivos de plugin o javascript y pregunto si estoy en chrome o ionic view
-   app simular aplicaion falsa en el cel  
-*/
 
 
   });
